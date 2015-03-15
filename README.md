@@ -1,0 +1,2 @@
+# ljGoPackage
+Create README.md
