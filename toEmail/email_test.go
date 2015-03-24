@@ -4,17 +4,17 @@ import (
 	"testing"
 )
 
-func TestSendMail(t *testing.T) {
-	mailbody := `<html>
-<head>
-<title>%s-订单审核</title>
+var mailbody = `<html>
+				<head><title>%s-订单审核</title></head>
+				<body>
+				<p>你猜中国字<p>
+				</body>
+				</html>`
 
-</head>
-<body>
-    <p>你猜中国字<p>
-</body>
-</html>`
-	mail := NewMail("html", "support@zcgames.cn", "liaojie@zcgames.cn", "再次测试各邮件是否有乱码", mailbody)
-	// email := New("html", "support@zcgames.cn", "liaojie@zcgames.cn", "再次测试各邮件是否有乱码", mailbody)
-	// t.Logf(" %v\n", email.SendMail("support@zcgames.cn", "zcxy1234", "smtp.exmail.qq.com", "25"))
+func TestSendMail(t *testing.T) {
+	mail, err := NewEmail("html", "sender@email.com", "iliaojie@gmail.com", "测试各邮件都没有乱码", mailbody)
+	if err != nil {
+		panic(err)
+	}
+	t.Logf(" %v\n", mail.SendMail("sender@email.com", "sender pass", "smtp.xxx.xxx.com", "25"))
 }
