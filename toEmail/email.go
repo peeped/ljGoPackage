@@ -1,11 +1,11 @@
-package email
+package toEmail
 
 import (
 	"encoding/base64"
 	"errors"
 	"fmt"
 	"net/smtp"
-	"regexp"
+	// "regexp"
 	"strings"
 )
 
@@ -43,10 +43,10 @@ func NewEmail(contentType, from, to, subject, msg string) (*Mail, error) {
 		return nil, errors.New("The sender can not be empty")
 	}
 	//verify that the `to` is email address if type is string
-	var emailPattern = regexp.MustCompile("[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[a-zA-Z0-9](?:[\\w-]*[\\w])?")
-	if ok := emailPattern.ReplaceAllString(to, "ok"); ok != "ok" {
-		return nil, errors.New("send addr error")
-	}
+	// var emailPattern = regexp.MustCompile("[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[a-zA-Z0-9](?:[\\w-]*[\\w])?")
+	// if ok := emailPattern.ReplaceAllString(to, "ok"); ok != "ok" {
+	// 	return nil, errors.New("send addr error")
+	// }
 	//verify email title
 	if subject == "" {
 		return nil, errors.New("email title can not be empty")
