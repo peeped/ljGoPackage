@@ -1,4 +1,4 @@
-package toEmail
+package email
 
 import (
 	"encoding/base64"
@@ -28,7 +28,7 @@ func hencode(x string) string {
 	return fmt.Sprintf("=?utf-8?b?%v?=", encode(x))
 }
 
-func New(contentType, from, to, subject, msg string) *Mail {
+func NewEmail(contentType, from, to, subject, msg string) *Mail {
 	return &Mail{contentType, from, to, subject, []byte(msg)}
 }
 
