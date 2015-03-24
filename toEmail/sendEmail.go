@@ -42,15 +42,17 @@ func (m Mail) message() (msg []byte) {
 	if m.ContentType != content_Type {
 		content_Type = "plain"
 	}
-	msg = []byte(fmt.Sprintf(`Content-Type: text/%s; charset="ISO-8859-1" MIME-Version: 1.0 Content-Transfer-Encoding: base64`, content_Type))
+	// msg = []byte(fmt.Sprintf(`Content-Type: text/%s; charset="ISO-8859-1" MIME-Version: 1.0 Content-Transfer-Encoding: base64`, content_Type))
+	msg = []byte(fmt.Sprintf(`Content-Type: text/%s; charset="UTF-8,ISO-8859-1" MIME-Version: 1.0 Content-Transfer-Encoding: base64`, content_Type))
 	msg = append(msg, []byte(fmt.Sprintf("\r\nFrom: %v\n", format(m.From)))...)
 
 	var tos []string
 	for _, addr := range strings.Split(m.To, ";") {
 		tos = append(tos, format(addr))
 	}
-
+	// msg = append(msg, []byte("Accept-Charset=\"ISO-8859-1,UTF-8\"\r\n")...)
 	msg = append(msg, []byte(fmt.Sprintf("To: %v\n", strings.Join(tos, ", ")))...)
-	msg = append(msg, []byte(fmt.Sprintf("Subject: %v\n\n%v\n", hencode(m.Subject), string(m.Body)))...)
+
+	msg = append(msg, []byte(fmt.Sprintf("Subject: %v\n\n%v\n", hencode(m.Subject), fmt.Sprintf("%s", string(m.Body))))...)
 	return
 }
