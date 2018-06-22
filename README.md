@@ -2,6 +2,7 @@
 
 #Example
 
+```
 package main
 
 import (
@@ -22,3 +23,4 @@ func main() {
 	}
 	fmt.Println(email.SendMail("sender@email.com", "sender pass", "smtp.xxx.xxx.com", "25"))
 }
+```
