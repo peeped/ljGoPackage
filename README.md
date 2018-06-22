@@ -2,25 +2,4 @@
 
 #Example
 
-```
-package main
-
-import (
-	"github.com/peeped/ljGoPackage/toEmail"
-	"log"
-	"fmt"
-)
-var mailbody = `<html>
-				<head><title>%s-订单审核</title></head>
-				<body>
-				<p>你猜中国字<p>
-				</body>
-				</html>`
-func main() {
-	email, err := toEmail.NewEmail("html", "sender@email.com", "iliaojie@gmail.com", "测试各邮件都没有乱码", mailbody)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(email.SendMail("sender@email.com", "sender pass", "smtp.xxx.xxx.com", "25"))
-}
-```
+一、[发送邮件](https://github.com/peeped/ljGoPackage/tree/master/toEmail)
