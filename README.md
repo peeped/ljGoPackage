@@ -4,11 +4,15 @@
 
 [发送邮件]
 
-```go get -u github.com/peeped/ljGoPackage/toEmail
+```
+	go get -u github.com/peeped/ljGoPackage/toEmail
+
 ```
 [基本库]
 
-```go get -u github.com/peeped/ljGoPackage/common
+```
+	go get -u github.com/peeped/ljGoPackage/common
+
 ```
 
 # Example
