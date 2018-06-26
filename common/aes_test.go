@@ -2,12 +2,11 @@ package common
 
 import (
 	"encoding/base64"
-	"fmt"
 	"github.com/peeped/ljGoPackage/common"
 	"testing"
 )
 
-func TestAesEncrypt(t *testing.T) {
+func Test(t *testing.T) {
 	// AES-128。key长度：16, 24, 32 bytes 对应 AES-128, AES-192, AES-256
 	aesKey := []byte("d7b59483d9954929b3262acc677cb51a")
 
